@@ -21,19 +21,19 @@ const ProductsCard = (props) => {
                     />
                 </View>
                 <View>
-                    <Text style={styles.profileName}>alexshop</Text>
+                    <Text style={styles.profileName}>{name}shop</Text>
                 </View>
             </View>
             <View style={{flex:1,elevation: 0, borderRadius:10, marginTop: 5}}>
                 <View>
                     <Image
                         style={styles.productImage}
-                        source={require('../assets/jean.jpg')}
+                        source={{uri: image}}
                     />
                 </View>
                 <View style={{ marginTop: 3,flexDirection: 'row', justifyContent: 'space-between' }}>
                     <View style={{marginLeft: 8}}>
-                        <Text style={styles.price}>1 500 fcfa</Text>
+                        <Text style={styles.price}>{price}</Text>
                     </View>
                     <View style={{marginRight: 8,flexDirection: 'row', }}>
                         <Icon
@@ -46,7 +46,7 @@ const ProductsCard = (props) => {
                     </View>
                 </View>
                 <View style={{marginLeft: 8, marginTop:-2}}>
-                    <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6}}>Adidas</Text>
+                    <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6}}>{name}</Text>
                 </View>
                 <View style={{marginLeft: 8, marginTop:-2}}>
                     <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6, color:"gray"}}>M / 38 / 10</Text>

@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeContainer from './Screens/Home/HomeContainer'
 import { View, Text, FlatList, SectionList } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const App = () => {
 
@@ -26,77 +27,66 @@ const App = () => {
       id: 4,
       name: 'Product 4'
     },
-    {
-      id: 5,
-      name: 'Product 5'
-    },
-    {
-      id: 6,
-      name: 'Product 6'
-    },
-    {
-      id: 7,
-      name: 'Product 7'
-    },
-    {
-      id: 8,
-      name: 'Product 8'
-    },
-    {
-      id: 9,
-      name: 'Product 9'
-    },
-
   ];
-
-  const Boots = [
+        
+   
+  const Supervisors = [
     {
       belongsToPruduct: 1,
-      name: 'Boost 1'
-    },
-    {
-      belongsToPruduct: 2,
-      name: 'Boost 2'
+      name: 'SuperVisor 1' 
     },
     {
       belongsToPruduct: 3,
-      name: 'Boost 3'
+      name: 'SuperVisor 2' 
+    },
+    {
+      belongsToPruduct: 2,
+      name: 'SuperVisor 3' 
     },
     {
       belongsToPruduct: 4,
-      name: 'Boost 4'
+      name: 'SuperVisor 4' 
     }
   ];
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  }
-  var productss = [];
-  var bootss = [];
+  const perChunk = 2 // items per chunk    
 
-  var i;
-  for (i = 0; i < Products.length; i++) {
-    let n = getRandomInt(1, 3)
-    productss.push(Products.slice(i++, i + n))
+
+
+const pro = Products.reduce((resultArray, item, index) => { 
+  const chunkIndex = Math.floor(index/perChunk)
+
+  if(!resultArray[chunkIndex]) {
+    resultArray[chunkIndex] = [] // start a new chunk
   }
 
-  for (i = 0; i < Boots.length; i++) {
-    bootss.push(Boots.slice(i++,i+1))
+  resultArray[chunkIndex].push(item)
+
+  return resultArray
+}, [])
+
+const perChunkk = 1 // items per chunk
+
+const boo = Supervisors.reduce((resultArray, item, index) => { 
+  const chunkIndex = Math.floor(index/perChunkk)
+
+  if(!resultArray[chunkIndex]) {
+    resultArray[chunkIndex] = [] // start a new chunk
   }
-console.log(bootss)
+
+  resultArray[chunkIndex].push(item)
+
+  return resultArray
+}, [])
+
+
+
+
 
   
   return (
 
     <View>
-
-<SectionList
-  sections={[ // heterogeneous rendering between sections
-    {data: productss, key: Math.random(), renderItem: ({item}) =><View> {item.map((it) => {<Text>{it.name}</Text>})}</View>}
-  ]}
-/>
-             
+      <HomeContainer/>
     </View>
   )
 }
