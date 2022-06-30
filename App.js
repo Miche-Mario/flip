@@ -52,7 +52,11 @@ const App = () => {
 
 
 
+<<<<<<< HEAD
 const pro = Products.reduce((resultArray, item, index) => { 
+=======
+const result = Products.reduce((resultArray, item, index) => { 
+>>>>>>> 887e619a801084241e68d3d8aec90d305bb52fc5
   const chunkIndex = Math.floor(index/perChunk)
 
   if(!resultArray[chunkIndex]) {
@@ -60,6 +64,7 @@ const pro = Products.reduce((resultArray, item, index) => {
   }
 
   resultArray[chunkIndex].push(item)
+<<<<<<< HEAD
 
   return resultArray
 }, [])
@@ -81,12 +86,46 @@ const boo = Supervisors.reduce((resultArray, item, index) => {
 
 
 
+=======
+>>>>>>> 887e619a801084241e68d3d8aec90d305bb52fc5
 
+  return resultArray
+}, [])
+console.log(pr)
+
+const sweetArray = [2, 3, 4, 5, 35]
+const sweeterArray = Products.map(sweetItem => {
+    return sweetItem * 2
+})
+
+console.log(sweeterArray)
+  
+const pr = result.map((item)=>  {return item})
   
   return (
 
     <View>
+<<<<<<< HEAD
       <HomeContainer/>
+=======
+      <FlatList
+        data={pr}
+        
+        renderItem = {({ item }) => {
+          
+          return (
+            <View>
+              <Text >{item.name}</Text>
+                <View >
+                  {
+                    Supervisors.map((supervisor) => <Text key={Math.random()} >{supervisor.name}</Text>)
+                  }
+                </View>
+            </View>
+          )
+        }}
+      />
+>>>>>>> 887e619a801084241e68d3d8aec90d305bb52fc5
     </View>
   )
 }
