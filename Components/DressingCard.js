@@ -9,47 +9,39 @@ import {
 import { Icon } from "@rneui/themed";
 import { COLORS, FONTS, SIZES } from '../Constants'
 
-const ProductsCard = (props) => {
-    const { name, price, image,rating,brand, size, countInStock } = props
+const DressingCard = (props) => {
+ 
     return (
+        
         <View style={styles.container}>
-            <View style={{ flexDirection: 'row', }}>
-                <View style={{marginLeft: 8}}>
-                    <Image
-                        style={styles.profileImage}
-                        source={{uri: image}}
-                    />
-                </View>
-                <View>
-                    <Text style={styles.profileName}>{name}</Text>
-                </View>
-            </View>
+           
             <View style={{flex:1,elevation: 0, borderRadius:10, marginTop: 5}}>
                 <View>
                     <Image
                         style={styles.productImage}
-                        source={{uri: image}}
+                        source={{uri: props.image}}
+                        resizeMode="cover"
                     />
                 </View>
-                <View style={{ marginTop: 3,flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ marginTop: 15,flexDirection: 'row', justifyContent: 'space-between' }}>
                     <View style={{marginLeft: 8}}>
-                        <Text style={styles.price}>{price}</Text>
+                        <Text style={styles.price}>{props.price}</Text>
                     </View>
-                    <View style={{marginRight: 8,flexDirection: 'row', }}>
+                    <View style={{marginRight: 8,flexDirection: 'row',}}>
                         <Icon
                             name='favorite-border'
                             type='material'
                             color='lightgray'
                             size={21}
                         />
-                        <Text style={styles.favoris}>{rating}</Text>
+                        <Text style={styles.favoris}>{props.rating}</Text>
                     </View>
                 </View>
                 <View style={{marginLeft: 8, marginTop:-2}}>
-                    <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6}}>{brand}</Text>
+                    <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6}}>{props.brand}</Text>
                 </View>
                 <View style={{marginLeft: 8, marginTop:-2}}>
-                    <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6, color:"gray"}}>{size}</Text>
+                    <Text style={{fontFamily: FONTS.body3, fontSize: SIZES.h6, color:"gray"}}>{props.size}</Text>
                 </View>
             </View>
 
@@ -59,17 +51,12 @@ const ProductsCard = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: SIZES.width / 2 - 12,
-        height: SIZES.height / 2,
+        width: SIZES.width / 2.5,
+        height: SIZES.height / 3,
         padding: 0,
-       
         marginTop: 15,
         marginBottom: 0,
-        
-        marginLeft: 8
-      
-        
-
+        marginLeft: 8,
     },
     profileImage: {
         width: 30,
@@ -85,8 +72,8 @@ const styles = StyleSheet.create({
     },
     productImage: {
         marginTop: 0,
-        width: SIZES.width / 2 - 12,
-        height: SIZES.height / 2 - 40 - 40 - 20,
+        width: SIZES.width / 2.5,
+        height: SIZES.height / 3 - 40 - 40,
     },
     card: {
         marginBottom: 10,
@@ -113,4 +100,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ProductsCard
+export default DressingCard

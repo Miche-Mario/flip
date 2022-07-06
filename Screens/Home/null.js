@@ -1,12 +1,11 @@
 import { TabItem } from '@rneui/base/dist/Tab/Tab.Item'
 import React, { useEffect, useState } from 'react'
-import  { Text, View, StyleSheet, FlatList, ScrollView, Image } from 'react-native'
+import  { Text, View, StyleSheet, FlatList, ScrollView } from 'react-native'
 import { COLORS, SIZES, FONTS } from '../../Constants/index'
 const data = require('../../assets/data/products.json')
 import ActuProductsList from './ActuProductsList'
 import ActuDressingProducts from './ActuDressingProducts'
 import ProductsCard from '../../Components/ProductsCard'
-import { Button } from '@rneui/base'
 
 const ProductsContainer = () => {
 
@@ -23,7 +22,6 @@ const ProductsContainer = () => {
     {
     "id": "1",
     "name": "Isabelle",
-    "image": "https://m.media-amazon.com/images/I/81Ty0JQfrcL._AC_UL1500_.jpg",
     "products": [
       {
         "image": "https://m.media-amazon.com/images/I/81Ty0JQfrcL._AC_UL1500_.jpg",
@@ -64,7 +62,6 @@ const ProductsContainer = () => {
   {
     "id": "2",
     "name": "Junior",
-    "image": "https://m.media-amazon.com/images/I/81Ty0JQfrcL._AC_UL1500_.jpg",
     "products": [
       {
         "image": "https://thumbs.dreamstime.com/b/young-sexy-woman-red-chemise-7863203.jpg",
@@ -100,87 +97,7 @@ const ProductsContainer = () => {
         "description": "Big Sofa for living room",
       }
     ]
-  },
-  {
-    "id": "1",
-    "name": "Isabelle",
-    "products": [
-      {
-        "image": "https://m.media-amazon.com/images/I/81Ty0JQfrcL._AC_UL1500_.jpg",
-        "brand": "Givinci",
-        "price": "2 500",
-        "rating": 6,
-        "numReviews": 0,
-        "isFeatured": true,
-        "size": "L / 40 / 12",
-        "name": "Isabelle",
-        "description": "The most hard FIFA ever",
-        "countInStock": 25,
-      },
-      {
-        "image": "https://m.media-amazon.com/images/I/71NY9YPaMhS._AC_UL1500_.jpg",
-        "brand": "Fhuger",
-        "price": "4 500",
-        "rating": 49,
-        "numReviews": 0,
-        "isFeatured": true,
-        "size": "XL / 10 / 2",
-        "name": "Audrey",
-        "description": "The most hard FIFA ever",
-      },
-      {
-        "image": "https://www.derkanadischeladentisch.com/5624/fj%C3%A4llr%C3%A4ven-chemise-canada-shirt-femme.jpg",
-        "brand": "Hiver",
-        "price": "1 300",
-        "rating": 14,
-        "numReviews": 0,
-        "isFeatured": true,
-        "size": "XL / 10 / 2",
-        "name": "Emma",
-        "description": "The most hard FIFA ever"
-      }
-    ]
-  },
-  {
-    "id": "1",
-    "name": "Isabelle",
-    "products": [
-      {
-        "image": "https://m.media-amazon.com/images/I/81Ty0JQfrcL._AC_UL1500_.jpg",
-        "brand": "Givinci",
-        "price": "2 500",
-        "rating": 6,
-        "numReviews": 0,
-        "isFeatured": true,
-        "size": "L / 40 / 12",
-        "name": "Isabelle",
-        "description": "The most hard FIFA ever",
-        "countInStock": 25,
-      },
-      {
-        "image": "https://m.media-amazon.com/images/I/71NY9YPaMhS._AC_UL1500_.jpg",
-        "brand": "Fhuger",
-        "price": "4 500",
-        "rating": 49,
-        "numReviews": 0,
-        "isFeatured": true,
-        "size": "XL / 10 / 2",
-        "name": "Audrey",
-        "description": "The most hard FIFA ever",
-      },
-      {
-        "image": "https://www.derkanadischeladentisch.com/5624/fj%C3%A4llr%C3%A4ven-chemise-canada-shirt-femme.jpg",
-        "brand": "Hiver",
-        "price": "1 300",
-        "rating": 14,
-        "numReviews": 0,
-        "isFeatured": true,
-        "size": "XL / 10 / 2",
-        "name": "Emma",
-        "description": "The most hard FIFA ever"
-      }
-    ]
-  },
+  }
 ]
 
   const prod = [
@@ -301,23 +218,17 @@ const ProductsContainer = () => {
   }
 ]
 
- 
+  let dressing = Dressing.length / 3;
   let data = []
   let d1;
   let d2;
 
-let i =0
-let j = 0
-let k=0
-
-  while( i<Dressing.length) {
 
 
-    d1 = Dressing.slice(j, j + 1)
-    d2 = prod.slice(k , k + 3)
-    i++
-    j++
-    k+=3
+  for(let i=0; i<Dressing.length;i++) {
+    d1 = Dressing.slice(i, i++ +1)
+    d2 = prod.slice(i, i + 2)
+
     data.push(
     
       <View style={styles.container}>
@@ -329,54 +240,23 @@ let k=0
       </View>
       ,
 
-
-
       <View style={{backgroundColor: 'white', elevation: 1, height: SIZES.height/1.5, marginBottom: 12}}>
-        <View style={{alignItems: 'center', margin: 30}}>
+        <View style={{alignItems: 'center', margin: 20}}>
           <Text style={{color: 'black', fontFamily: FONTS.body2, fontSize: SIZES.h2}}>Dressing en vitrine</Text>
         </View>
-    
       
           {
             d1.map((it, index) =>
-            <View>
-              <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
-                <View style={{margin: 10,flexDirection: "row", marginLeft:6,  }}>
-                    <Image
-                      style={{
-                        width: 30,
-                        height: 30,
-                        borderRadius: 150 / 2
-                      }}
-                      source={{uri: it.image}}
-                    />
-                    <View style={{marginLeft: 8}}>
-                      <Text style={{fontFamily: FONTS.body2, fontSize:SIZES.h3}}>{it.name}</Text>
-                      <View><Text>eiuiuifvefvbeb</Text></View>
-                    </View>
-                </View>
-                <View style={{padding: 10, marginRight: 10}}>
-                  <Button>Suivre</Button>
-                </View>
-              </View>
-           
             <FlatList
-            horizontal
                 data={it.products}
                 renderItem={({item}) =><ActuDressingProducts key={index} item={item}/> }
             />
-             </View>
-             
+            
  
       
           )}
-          <View style={{margin: 30, alignItems: 'center'}}>
-            <Text style={{color: 'darkblue', fontFamily: FONTS.body2, fontSize: SIZES.h3}}>Voir plus...</Text>
-          </View>
    
-      </View> 
-
-    
+      </View>
         
     
       )
@@ -389,12 +269,7 @@ let k=0
     <ScrollView style={{backgroundColor: 'lightgray'}}>
       <Text>Fil d'actualité</Text>
   
-    {
-  
-    data.map((it,index) =>it)
-    
-    
-    }
+    {data.map((it,index) =>it)}
  
         
       

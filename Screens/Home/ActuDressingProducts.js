@@ -9,20 +9,20 @@ import {
     Touchable,
     ScrollView
 } from 'react-native'
-import ProductsCard from '../../Components/ProductsCard'
+import DressingCard from '../../Components/DressingCard'
 import { SIZES } from '../../Constants'
 
-const HomeActu = (props) => {
+const ActuDressingProducts = (props) => {
     const { item } = props
 
   return (
     <TouchableOpacity >
         <View >
-            <ProductsCard {...item}/>
+            <DressingCard {...item}/>
         </View>
         
     </TouchableOpacity>
   )
 }
 
-export default HomeActu
+export default ActuDressingProducts
