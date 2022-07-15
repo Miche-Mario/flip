@@ -366,16 +366,18 @@ const ProductsContainer = () => {
     )
   }
   return (
-    <ScrollView style={{ backgroundColor: 'white' }}>
-      <Header/>
+<ScrollView>
+      <View>
+        <Header/>
+      </View>
       <View>
       <Text>Fil d'actualité</Text>
       {
         data.map((it, index) => it)
       }
-      </View>
+      </View></ScrollView>
       
-    </ScrollView>
+ 
   )
 }
 

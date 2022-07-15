@@ -25,15 +25,14 @@ export const SIZES = {
     h4: 16,
     h5: 14,
     h6: 12,
-
     body: 16,
-
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
 }
 
 export const FONTS = {
-    flip : "GeometricaSans-Regular",
+    flip: "GeometricaSans-Regular",
+    flip2: "geometrica-sans-bold",
     body1: "Roboto-Bold",
     body2: "Roboto-Medium",
     body3: "Roboto-Regular"
